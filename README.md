@@ -10,4 +10,9 @@ This is a project to demonstrate how Cypress can be used for API testing, using 
 
     $ git clone https://github.com/ma0sm/CypressAPITesting
     $ npm install
-    $ npx cypress open / npx cypress run
+    
+## Run
+With the GUI
+    $ npm run steven:gui
+Without the GUI
+    $ npm run steven
