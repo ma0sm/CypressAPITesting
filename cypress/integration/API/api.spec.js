@@ -3,7 +3,7 @@
 describe(Cypress.config().baseUrl + ` API validation`, () => {
   let callData;
 
-  context("Call without the parameter", () => {
+  context("Calls without setting the parameter", () => {
     before(() => {
       cy.getNameData().then((resp) => {
         callData = resp;
@@ -27,7 +27,7 @@ describe(Cypress.config().baseUrl + ` API validation`, () => {
     });
   });
 
-  context("Call with parameter", () => {
+  context("Calls with parameter set", () => {
     const name = "Steven";
     before(() => {
       cy.getNameData(name).then((resp) => {
