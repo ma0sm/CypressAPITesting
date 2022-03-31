@@ -12,7 +12,9 @@ This is a project to demonstrate how Cypress can be used for API testing, using 
     $ npm install
     
 ## Run
+
 With the GUI
     $ npm run steven:gui
+    
 Without the GUI
     $ npm run steven
