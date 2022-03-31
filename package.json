@@ -4,7 +4,9 @@
   "description": "Demo Project of Cypress API testing",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "steven:gui": "npx cypress open --config-file=cypress/fixtures/steven",
+    "steven:run": "npx cypress run --config-file=cypress/fixtures/steven"
   },
   "author": "Steven Morgan",
   "license": "Apache-2.0",

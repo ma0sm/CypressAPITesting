@@ -25,7 +25,7 @@ describe(
         });
     });
 
-    it("UI data response is identical with real API data response", () => {
+    it("Check the UI data response is identical to the real API data response", () => {
       cy.get("div.jss159 > div")
         .invoke("text")
         .then((uiData) => {
@@ -33,7 +33,7 @@ describe(
         });
     });
 
-    it("UI try me button return identical JSON with API", () => {
+    it("Check the try me button in the UI returns the same JSON as the API", () => {
       cy.get('[data-click="api-test"]')
         .first()
         .invoke("removeAttr", "target")
@@ -45,7 +45,7 @@ describe(
         });
     });
 
-    it("UI and API return different result with different parameter", () => {
+    it("Check that the UI and API return different results when provided different parameters", () => {
       cy.get('[data-click="api-test"]')
         .first()
         .invoke("removeAttr", "target")

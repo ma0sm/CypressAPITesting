@@ -1,6 +1,20 @@
 {
-  "name": "Steven",
-  "count": 61542,
-  "gender": "male",
-  "probability": 0.99
+  "baseUrl": "https://api.genderize.io",
+  "retries": {
+    "runMode": 1,
+    "openMode": 1
+  },
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "configFile": "./reporter-config.json",
+    "toConsole": true
+  },
+  "env": {
+    "count": 61542,
+    "gender": "male",
+    "name": "Steven",
+    "probability": 0.99
+  },
+  "video": false,
+  "chromeWebSecurity": false
 }

@@ -1,5 +1,4 @@
 /// <reference types="Cypress" />
-
 describe(Cypress.config().baseUrl + ` API validation`, () => {
   let callData;
 
@@ -10,58 +9,62 @@ describe(Cypress.config().baseUrl + ` API validation`, () => {
       });
     });
 
-    it("Call status was 422", () => {
+    it("Check the call status was 422", () => {
       expect(callData.status).to.be.eq(422);
     });
 
-    it("Error call return less then 1s", () => {
+    it("Throw an error if the call returns in more than one second", () => {
       expect(callData.duration).to.be.lessThan(1000);
     });
 
-    it("Call return error if parameter is not set", () => {
+    it("Check an error is returned if the parameter is not set", () => {
       expect(callData.body.error).to.exist;
     });
 
-    it("Call return correct error name if parameter is not set", () => {
+    it("Check the correct error name is thrown if the parameter is not set", () => {
       expect(callData.body.error).to.eq("Missing 'name' parameter");
     });
   });
 
-  context("Calls with parameter set", () => {
-    const name = "Steven";
+  context("Calls with parameters set", () => {
+    const name = Cypress.env("name");
+    const count = Cypress.env("count");
+    const gender = Cypress.env("gender");
+    const probability = Cypress.env("probability");
+
     before(() => {
       cy.getNameData(name).then((resp) => {
         callData = resp;
       });
     });
 
-    it("Call status was 200", () => {
+    it("Check the call status was 200", () => {
       expect(callData.status).to.be.eq(200);
     });
 
-    it("Success call return less then 1s", () => {
+    it("Check the success call returns in less than one second", () => {
       expect(callData.duration).to.be.lessThan(1000);
     });
 
-    it("Body properties has correct types", () => {
+    it("Check the body properties have the correct types", () => {
       expect(typeof callData.body.count).to.eq("number");
       expect(typeof callData.body.gender).to.eq("string");
       expect(typeof callData.body.name).to.eq("string");
       expect(typeof callData.body.probability).to.eq("number");
     });
 
-    it("API call return correct object", () => {
+    it("Check API call returns the correct object", () => {
       const objectForComparing = {
-        count: 61542,
-        gender: "male",
+        count,
+        gender,
         name,
-        probability: 0.99,
+        probability,
       };
       expect(callData.body).to.deep.equal(objectForComparing);
     });
   });
 
-  context("Call with wrong parameter", () => {
+  context("Call with an invalid parameter", () => {
     const name = "??????";
     before(() => {
       cy.getNameData(name).then((resp) => {
@@ -69,22 +72,22 @@ describe(Cypress.config().baseUrl + ` API validation`, () => {
       });
     });
 
-    it("Call status was 200", () => {
+    it("Check the call status was 200", () => {
       expect(callData.status).to.be.eq(200);
     });
 
-    it("Success call return less then 1s", () => {
+    it("Check the success call returns in less than one second", () => {
       expect(callData.duration).to.be.lessThan(1000);
     });
 
-    it("Body properties has correct types", () => {
+    it("Check the body properties have the correct types", () => {
       expect(typeof callData.body.count).to.eq("number");
       expect(typeof callData.body.gender).to.eq("object");
       expect(typeof callData.body.name).to.eq("string");
       expect(typeof callData.body.probability).to.eq("number");
     });
 
-    it("API call return correct object", () => {
+    it("Check API call returns the correct object", () => {
       const objectForComparing = {
         name,
         gender: null,

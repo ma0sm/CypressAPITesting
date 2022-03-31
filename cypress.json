@@ -1,5 +1,5 @@
 {
-    "baseUrl": "https://api.genderize.io",
-    "video": false,
-    "chromeWebSecurity": false
+  "baseUrl": "https://api.genderize.io",
+  "video": false,
+  "chromeWebSecurity": false
 }
