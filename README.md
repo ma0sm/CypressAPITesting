@@ -14,7 +14,9 @@ This is a project to demonstrate how Cypress can be used for API testing, using 
 ## Run
 
 With the GUI
+
     $ npm run steven:gui
     
 Without the GUI
+
     $ npm run steven
