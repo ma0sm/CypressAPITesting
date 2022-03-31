@@ -1,0 +1,14 @@
+{
+  "name": "cypress-api-example-project",
+  "version": "1.0.0",
+  "description": "Demo Project of Cypress API testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steven Morgan",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cypress": "^9.5.3"
+  }
+}
